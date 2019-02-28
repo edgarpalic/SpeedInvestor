@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC37F2A22223EBB800124A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC37F2A12223EBB800124A5A /* AppDelegate.swift */; };
-		CC37F2A42223EBB800124A5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC37F2A32223EBB800124A5A /* ViewController.swift */; };
-		CC37F2A72223EBB800124A5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC37F2A52223EBB800124A5A /* Main.storyboard */; };
-		CC37F2A92223EBB900124A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC37F2A82223EBB900124A5A /* Assets.xcassets */; };
-		CC37F2AC2223EBB900124A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC37F2AA2223EBB900124A5A /* LaunchScreen.storyboard */; };
+		CC37F2B42223F58E00124A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC37F2A12223EBB800124A5A /* AppDelegate.swift */; };
+		CC37F2B52223F59200124A5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC37F2A32223EBB800124A5A /* ViewController.swift */; };
+		CC37F2B62223F59600124A5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC37F2A52223EBB800124A5A /* Main.storyboard */; };
+		CC37F2B72223F59A00124A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC37F2A82223EBB900124A5A /* Assets.xcassets */; };
+		CC37F2B82223F59E00124A5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC37F2AA2223EBB900124A5A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,9 +122,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC37F2AC2223EBB900124A5A /* LaunchScreen.storyboard in Resources */,
-				CC37F2A92223EBB900124A5A /* Assets.xcassets in Resources */,
-				CC37F2A72223EBB800124A5A /* Main.storyboard in Resources */,
+				CC37F2B82223F59E00124A5A /* LaunchScreen.storyboard in Resources */,
+				CC37F2B72223F59A00124A5A /* Assets.xcassets in Resources */,
+				CC37F2B62223F59600124A5A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +135,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC37F2A42223EBB800124A5A /* ViewController.swift in Sources */,
-				CC37F2A22223EBB800124A5A /* AppDelegate.swift in Sources */,
+				CC37F2B52223F59200124A5A /* ViewController.swift in Sources */,
+				CC37F2B42223F58E00124A5A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +282,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FA72359TGS;
 				INFOPLIST_FILE = "Speed Investor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -290,6 +292,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Edgar.Speed-Investor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -299,7 +302,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FA72359TGS;
 				INFOPLIST_FILE = "Speed Investor/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -307,6 +312,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Edgar.Speed-Investor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
