@@ -1,0 +1,6 @@
+framework module Pods_Speed_Investor {
+  umbrella header "Pods-Speed Investor-umbrella.h"
+
+  export *
+  module * { export * }
+}
