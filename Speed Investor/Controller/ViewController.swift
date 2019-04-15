@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Speed Investor
 //
-//  Created by user151107 on 2/25/19.
-//  Copyright © 2019 user151107. All rights reserved.
+//  Created by Edgar Palic on 2/25/19.
+//  Copyright © 2019 Edgar Palic. All rights reserved.
 //
 
 import UIKit
@@ -40,15 +40,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var timeCount = 60
     
     var investHouseCost = 10
-    var investHouseAmount = 1
-    var investTrainCost = 1000
+    var investHouseAmount = 0
+    var investTrainCost = 500
     var investTrainAmount = 0
-    var investAirplaneCost = 2000
+    var investAirplaneCost = 1000
     var investAirplaneAmount = 0
-    var investSkyscraperCost = 3000
+    var investSkyscraperCost = 2000
     var investSkyscraperAmount = 0
     
     var locationManager:CLLocationManager = CLLocationManager()
+    var bonusColor = UIColor(red: 102/255, green: 250/255, blue: 51/255, alpha: 0.75)
+    var originalColor = UIColor(red: 125/255, green: 209/255, blue: 229/255, alpha: 0.75)
     
      /////////////////////////////CODE///////////////////////////////
 
@@ -57,6 +59,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         uiMoneyDisplay()
+        lblSystemText.text = "Start working!"
         
         self.locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization()
@@ -89,15 +92,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             if altHeight <= 50 {
                 investHouseCost = investHouseCost / 2
+                btnBuyHouse.backgroundColor = bonusColor
+            } else {
+                btnBuyHouse.backgroundColor = originalColor
             }
+            
             if altHeight >= 51 && altHeight <= 200 {
                 investSkyscraperCost = investSkyscraperCost / 2
+                btnBuySkyscraper.backgroundColor = bonusColor
+            } else {
+                btnBuySkyscraper.backgroundColor = originalColor
             }
+            
             if altHeight >= 201 {
                 investAirplaneCost = investAirplaneCost / 2
+                btnBuyAirplane.backgroundColor = bonusColor
+            } else {
+                btnBuyAirplane.backgroundColor = originalColor
             }
+            
             if speed > 10.0 {
                 investTrainCost = investTrainCost / 2
+                btnBuyTrain.backgroundColor = bonusColor
+            } else {
+                btnBuyTrain.backgroundColor = originalColor
             }
             print(altHeight)
             print(speed)
@@ -118,7 +136,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             totalMoney -= investHouseCost
             investHouseAmount += 1
             investHouseCost *= 2
-            clickMoney += investHouseAmount
+            clickMoney = clickMoney + 1
             lblSystemText.text = "House purchased!"
             uiMoneyDisplay()
         }
@@ -130,9 +148,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func btnBuyTrain(_ sender: UIButton) {
         if totalMoney >= investTrainCost {
             totalMoney -= investTrainCost
-            investTrainAmount += 10
+            investTrainAmount += 1
             investTrainCost *= 2
-            clickMoney += investTrainAmount
+            clickMoney = clickMoney + 10
             
             lblSystemText.text = "Train purchased!"
             uiMoneyDisplay()
@@ -145,9 +163,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func btnBuyAirplane(_ sender: UIButton) {
         if totalMoney >= investAirplaneCost {
             totalMoney -= investAirplaneCost
-            investAirplaneAmount += 50
+            investAirplaneAmount += 1
             investAirplaneCost *= 2
-            clickMoney += investAirplaneAmount
+            clickMoney = clickMoney + 50
             
             lblSystemText.text = "Airplane purchased!"
             uiMoneyDisplay()
@@ -160,9 +178,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func btnBuySkyscraper(_ sender: UIButton) {
         if totalMoney >= investSkyscraperCost {
             totalMoney -= investSkyscraperCost
-            investSkyscraperAmount += 100
+            investSkyscraperAmount += 1
             investSkyscraperCost *= 2
-            clickMoney += investSkyscraperAmount
+            clickMoney = clickMoney + 100
             
             lblSystemText.text = "Skyscraper purchased!"
             uiMoneyDisplay()
@@ -182,28 +200,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         btnClickArea.setTitle("Income $\(clickMoney)", for: .normal)
         
         if investHouseAmount >= 1 {
-        lblInvestHouseAmount.text = "Income: $\(investHouseAmount)"
+        lblInvestHouseAmount.text = "Amount: \(investHouseAmount)"
         }
         else{
-            lblInvestHouseAmount.text = "Income: $0"
+            lblInvestHouseAmount.text = "Amount: 0"
         }
         if investTrainAmount >= 1 {
-            lblInvestTrainAmount.text = "Income: $\(investTrainAmount)"
+            lblInvestTrainAmount.text = "Amount: \(investTrainAmount)"
         }
         else{
-            lblInvestTrainAmount.text = "Income: $0"
+            lblInvestTrainAmount.text = "Amount: 0"
         }
         if investAirplaneAmount >= 1 {
-            lblInvestAirplaneAmount.text = "Income: $\(investAirplaneAmount)"
+            lblInvestAirplaneAmount.text = "Amount: \(investAirplaneAmount)"
         }
         else{
-            lblInvestAirplaneAmount.text = "Income: $0"
+            lblInvestAirplaneAmount.text = "Amount: 0"
         }
         if investSkyscraperAmount >= 1 {
-            lblInvestSkyscraperAmount.text = "Income: $\(investSkyscraperAmount)"
+            lblInvestSkyscraperAmount.text = "Amount: \(investSkyscraperAmount)"
         }
         else{
-            lblInvestSkyscraperAmount.text = "Income: $0"
+            lblInvestSkyscraperAmount.text = "Amount: 0"
         }
     }
     

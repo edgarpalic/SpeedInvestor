@@ -2,8 +2,8 @@
 //  TableViewCell.swift
 //  Speed Investor
 //
-//  Created by user149361 on 3/24/19.
-//  Copyright © 2019 user151107. All rights reserved.
+//  Created by Edgar Palic on 3/24/19.
+//  Copyright © 2019 Edgar Palic. All rights reserved.
 //
 
 import UIKit

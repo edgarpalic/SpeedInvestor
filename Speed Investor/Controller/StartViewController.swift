@@ -2,23 +2,26 @@
 //  StartViewController.swift
 //  Speed Investor
 //
-//  Created by user149361 on 3/19/19.
-//  Copyright © 2019 user151107. All rights reserved.
+//  Created by Edgar Palic on 3/19/19.
+//  Copyright © 2019 Edgar Palic. All rights reserved.
 //
 
 import UIKit
 import Firebase
+import CoreLocation
 
 class StartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let cellIdentity = "cellIdentity"
     var entries = [Users]()
+    var locationManager:CLLocationManager = CLLocationManager()
 
     @IBOutlet weak var highScoreTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.requestWhenInUseAuthorization()
         highScoreTableView.dataSource = self
         highScoreTableView.delegate = self
         getScoreboardData()
