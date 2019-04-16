@@ -313,7 +313,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             print(error)
         }
         audioPlayer.play()
-        print("ching")
     }
     
     func backgroundMusic(){
@@ -325,7 +324,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             print(error)
         }
         audioPlayer2.play()
-        print("bg music starts")
     }
     
     // This function creates a floating label animation from the center of the screen.
