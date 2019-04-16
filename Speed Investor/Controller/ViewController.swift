@@ -53,6 +53,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var bonusColor = UIColor(red: 102/255, green: 250/255, blue: 51/255, alpha: 0.75)
     var originalColor = UIColor(red: 125/255, green: 209/255, blue: 229/255, alpha: 0.75)
     var audioPlayer: AVAudioPlayer!
+    var audioPlayer2: AVAudioPlayer!
+    var coordinates: CGPoint!
     
      /////////////////////////////CODE///////////////////////////////
 
@@ -120,13 +122,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             } else {
                 btnBuyTrain.backgroundColor = originalColor
             }
-            print(altHeight)
-            print(speed)
+            print("Altitude \(altHeight)")
+            print("Speed \(speed)")
         }
     }
     
     // This is the money earning click area.
     @IBAction func btnClickArea(_ sender: UIButton) {
+        numberFly(clickMoney)
         totalMoney += clickMoney
         uiMoneyDisplay()
         lblSystemText.text = "You earned \(clickMoney) money!"
@@ -290,6 +293,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // Sending the final score to next page.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        audioPlayer2.stop()
+        audioPlayer2.currentTime = 0
+        
         let endSegue = "endSegue"
         
         if segue.identifier == endSegue {
@@ -315,13 +321,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func backgroundMusic(){
         let soundURL = Bundle.main.url(forResource: "bgmusic", withExtension: "mp3")
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
+            audioPlayer2 = try AVAudioPlayer(contentsOf: soundURL!)
         }
         catch {
             print(error)
         }
-        audioPlayer.play()
+        audioPlayer2.play()
         print("bg music starts")
+    }
+    
+    // This function creates a floating label animation from the center of the screen.
+    func numberFly(_ clickMoney: Int) {
+        let label = UILabel(frame: CGRect(x: self.view.frame.width / 2, y: self.view.frame.height / 2, width: 100, height: 50))
+        label.text = "$\(clickMoney)"
+        label.font = UIFont(name: "AvenirNext-Medium", size: 45)
+        label.textColor = UIColor.white
+        
+        self.view.addSubview(label)
+        
+        let random = arc4random_uniform(100)
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            label.center.y -= 250
+            label.center.x += -50 + CGFloat(random)
+            label.alpha = 0
+        })
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: {_ in
+            label.removeFromSuperview()
+        })
     }
 }
 
