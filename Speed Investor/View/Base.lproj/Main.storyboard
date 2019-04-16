@@ -89,7 +89,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4v6-6x-2hR">
-                                                    <rect key="frame" x="220" y="0.0" width="512" height="44.333333333333336"/>
+                                                    <rect key="frame" x="220" y="0.0" width="190" height="44.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="iCA-CZ-SrP"/>
                                                     </constraints>

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import AVFoundation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -51,6 +52,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager:CLLocationManager = CLLocationManager()
     var bonusColor = UIColor(red: 102/255, green: 250/255, blue: 51/255, alpha: 0.75)
     var originalColor = UIColor(red: 125/255, green: 209/255, blue: 229/255, alpha: 0.75)
+    var audioPlayer: AVAudioPlayer!
     
      /////////////////////////////CODE///////////////////////////////
 
@@ -71,6 +73,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         Timer.scheduledTimer(timeInterval: 1.0,  target: self, selector: #selector(Count), userInfo: nil ,  repeats: true)
         
         gpsData()
+        backgroundMusic()
 
     }
     
@@ -86,7 +89,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func gpsData() {
         
         var speed: CLLocationSpeed = CLLocationSpeed()
-        speed = speed + 0.0
+        //speed = speed + 0.0
         
         if let altHeight = locationManager.location?.altitude {
             
@@ -132,6 +135,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // Next four button functions are for the procurement of ingame investments.
     @IBAction func btnBuyHouse(_ sender: UIButton) {
+        
+        UIButton.animate(withDuration: 0.2,
+                         animations: {
+                            sender.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                         completion: { finish in
+                            UIButton.animate(withDuration: 0.5, animations: {
+                                sender.transform = CGAffineTransform.identity
+                            })
+        })
+        
         if totalMoney >= investHouseCost {
             totalMoney -= investHouseCost
             investHouseAmount += 1
@@ -139,6 +153,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             clickMoney = clickMoney + 1
             lblSystemText.text = "House purchased!"
             uiMoneyDisplay()
+            buttonSound()
         }
         else{
             lblSystemText.text = "Not enough money!"
@@ -146,6 +161,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func btnBuyTrain(_ sender: UIButton) {
+        
+        UIButton.animate(withDuration: 0.2,
+                         animations: {
+                            sender.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                         completion: { finish in
+                            UIButton.animate(withDuration: 0.5, animations: {
+                                sender.transform = CGAffineTransform.identity
+                            })
+        })
+        
         if totalMoney >= investTrainCost {
             totalMoney -= investTrainCost
             investTrainAmount += 1
@@ -154,6 +180,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             lblSystemText.text = "Train purchased!"
             uiMoneyDisplay()
+            buttonSound()
         }
         else {
             lblSystemText.text = "Not enough money!"
@@ -161,6 +188,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func btnBuyAirplane(_ sender: UIButton) {
+        
+        UIButton.animate(withDuration: 0.2,
+                         animations: {
+                            sender.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                         completion: { finish in
+                            UIButton.animate(withDuration: 0.5, animations: {
+                                sender.transform = CGAffineTransform.identity
+                            })
+        })
+        
         if totalMoney >= investAirplaneCost {
             totalMoney -= investAirplaneCost
             investAirplaneAmount += 1
@@ -169,6 +207,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             lblSystemText.text = "Airplane purchased!"
             uiMoneyDisplay()
+            buttonSound()
         }
         else {
             lblSystemText.text = "Not enough money!"
@@ -176,6 +215,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func btnBuySkyscraper(_ sender: UIButton) {
+        
+        UIButton.animate(withDuration: 0.2,
+                         animations: {
+                            sender.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                         completion: { finish in
+                            UIButton.animate(withDuration: 0.5, animations: {
+                                sender.transform = CGAffineTransform.identity
+                            })
+        })
+        
         if totalMoney >= investSkyscraperCost {
             totalMoney -= investSkyscraperCost
             investSkyscraperAmount += 1
@@ -184,6 +234,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             lblSystemText.text = "Skyscraper purchased!"
             uiMoneyDisplay()
+            buttonSound()
         }
         else {
             lblSystemText.text = "Not enough money!"
@@ -192,7 +243,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // This will actively display information regarding investments on the investment buttons. Called in multiple places.
     func uiMoneyDisplay(){
-        lblTotalMoney.text = "Cash: $\(totalMoney)"
+        lblTotalMoney.text = "Money: $\(totalMoney)"
         lblInvestHouseCost.text = "Cost: $\(investHouseCost)"
         lblInvestTrainCost.text = "Cost: $\(investTrainCost)"
         lblInvestAirplaneCost.text = "Cost: $\(investAirplaneCost)"
@@ -246,7 +297,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             destinationVC.currentScore = totalMoney
         }
-        
+    }
+    
+    // Some button sound and background music functions.
+    func buttonSound(){
+        let soundURL = Bundle.main.url(forResource: "ching", withExtension: "wav")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
+        }
+        catch {
+            print(error)
+        }
+        audioPlayer.play()
+        print("ching")
+    }
+    
+    func backgroundMusic(){
+        let soundURL = Bundle.main.url(forResource: "bgmusic", withExtension: "mp3")
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
+        }
+        catch {
+            print(error)
+        }
+        audioPlayer.play()
+        print("bg music starts")
     }
 }
 

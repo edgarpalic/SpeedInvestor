@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		54074B9C22483F4200FDB973 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54074B9B22483F4200FDB973 /* TableViewCell.swift */; };
 		547A235B2241583B0023C084 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547A235A2241583B0023C084 /* StartViewController.swift */; };
+		842CEE792265AABE00385DDC /* bgmusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 842CEE772265AABE00385DDC /* bgmusic.mp3 */; };
+		842CEE7A2265AABE00385DDC /* ching.wav in Resources */ = {isa = PBXBuildFile; fileRef = 842CEE782265AABE00385DDC /* ching.wav */; };
 		AF7E8DD725FBE03012EC94E3 /* Pods_Speed_Investor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934D1C4E5AADFAA3E640A669 /* Pods_Speed_Investor.framework */; };
 		CC37F2B42223F58E00124A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC37F2A12223EBB800124A5A /* AppDelegate.swift */; };
 		CC37F2B52223F59200124A5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC37F2A32223EBB800124A5A /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		54074B9B22483F4200FDB973 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		547A235A2241583B0023C084 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		842CEE772265AABE00385DDC /* bgmusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgmusic.mp3; sourceTree = "<group>"; };
+		842CEE782265AABE00385DDC /* ching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ching.wav; sourceTree = "<group>"; };
 		90117B1F4F437B8FE43FE9AC /* Pods-Speed Investor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Speed Investor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Speed Investor/Pods-Speed Investor.debug.xcconfig"; sourceTree = "<group>"; };
 		934D1C4E5AADFAA3E640A669 /* Pods_Speed_Investor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Speed_Investor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC37F29E2223EBB800124A5A /* Speed Investor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speed Investor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +54,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		842CEE762265AA9C00385DDC /* Sound Files */ = {
+			isa = PBXGroup;
+			children = (
+				842CEE772265AABE00385DDC /* bgmusic.mp3 */,
+				842CEE782265AABE00385DDC /* ching.wav */,
+			);
+			path = "Sound Files";
+			sourceTree = "<group>";
+		};
 		C44BF11AB7BFA1BF90A704DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +105,7 @@
 				CCA902052236F7DD00302BF0 /* View */,
 				CCA902062236F7E700302BF0 /* Controller */,
 				CC37F2A82223EBB900124A5A /* Assets.xcassets */,
+				842CEE762265AA9C00385DDC /* Sound Files */,
 				CCA902072236F85600302BF0 /* Supporting Files */,
 				CC37F2AD2223EBB900124A5A /* Info.plist */,
 			);
@@ -196,6 +210,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842CEE7A2265AABE00385DDC /* ching.wav in Resources */,
+				842CEE792265AABE00385DDC /* bgmusic.mp3 in Resources */,
 				CC37F2B82223F59E00124A5A /* LaunchScreen.storyboard in Resources */,
 				CCA902032236F13A00302BF0 /* GoogleService-Info.plist in Resources */,
 				CC37F2B72223F59A00124A5A /* Assets.xcassets in Resources */,
