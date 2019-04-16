@@ -87,11 +87,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
     }
-    //We grab altitude and speed and then use it to implement ingame benefits with this function.
+    //We grab altitude and movement speed and then use it to implement ingame benefits with this function.
     func gpsData() {
         
         var speed: CLLocationSpeed = CLLocationSpeed()
-        //speed = speed + 0.0
         
         if let altHeight = locationManager.location?.altitude {
             
@@ -133,7 +132,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         totalMoney += clickMoney
         uiMoneyDisplay()
         lblSystemText.text = "You earned \(clickMoney) money!"
-        //print(locationManager.location?.altitude)
     }
     
     // Next four button functions are for the procurement of ingame investments.
